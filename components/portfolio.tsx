@@ -110,7 +110,7 @@ function Home({select}:{select:(k:FileKey)=>void}){
  return <div className="codepage home-page">
    <Lines>
     <Line n={1}><span className="comment">/** Welcome to my workspace */</span></Line>
-    <Line n={2}></Line><Line n={3}><span className="kw">const</span> <span className="var">developer</span> = {'{'}</Line>
+    <Line n={2}>{null}</Line><Line n={3}><span className="kw">const</span> <span className="var">developer</span> = {'{'}</Line>
     <Line n={4}>  name: <span className="str">"Naga Sai"</span>,</Line>
     <Line n={5}>  role: <span className="str">"MTS · AI Engineer"</span>,</Line>
     <Line n={6}>  company: <span className="str">"Salesforce"</span>,</Line>
@@ -118,7 +118,7 @@ function Home({select}:{select:(k:FileKey)=>void}){
     <Line n={8}>  focus: [<span className="str">"Agents"</span>, <span className="str">"Inference"</span>, <span className="str">"Voice AI"</span>],</Line>
     <Line n={9}>  experience: <span className="num">5</span>,</Line>
     <Line n={10}>{'}'}</Line>
-    <Line n={11}></Line>
+    <Line n={11}>{null}</Line>
     <Line n={12}><span className="kw">export default</span> <span className="kw">function</span> <span className="fn">intro</span>() {'{'}</Line>
     <Line n={13}>  <span className="kw">return</span> <span className="str">"I build AI systems that ship."</span>;</Line>
     <Line n={14}>{'}'}</Line>
@@ -151,7 +151,7 @@ function Experience(){return <div className="codepage"><div className="section-t
 
 function Projects(){return <div className="codepage"><div className="section-title"><span className="comment">// selected-work.ts</span><h2>Projects</h2></div><div className="project-grid">{projectData.map((p,i)=><article className="project-card" key={p.name}><div className="project-number">0{i+1}</div><Code2 size={20}/><h3>{p.name}</h3><span className="tag">{p.tag}</span><p>{p.text}</p><a href={GITHUB} target="_blank">source <Github size={14}/></a></article>)}</div></div>}
 
-function Skills(){const groups=[["Languages",["Python","Java","TypeScript","SQL"]],["AI / ML",["LLMs","RAG","Embeddings","Tool Calling","Agents","MCP"]],["Cloud / Data",["Azure","Databricks","BigQuery","Cosmos DB","Tableau"]],["Backend",["FastAPI","APIs","Distributed Systems","Inference","CI/CD"]]];return <div className="codepage"><div className="section-title"><span className="comment">// stack.json</span><h2>Skills</h2></div><div className="skill-grid">{groups.map(([g,items])=><div className="skill-group" key={g}><h3>{g}</h3>{(items as string[]).map(x=><span key={x}>{x}</span>)}</div>)}</div></div>}
+function Skills(){const groups: [string,string[]][]=[["Languages",["Python","Java","TypeScript","SQL"]],["AI / ML",["LLMs","RAG","Embeddings","Tool Calling","Agents","MCP"]],["Cloud / Data",["Azure","Databricks","BigQuery","Cosmos DB","Tableau"]],["Backend",["FastAPI","APIs","Distributed Systems","Inference","CI/CD"]]];return <div className="codepage"><div className="section-title"><span className="comment">// stack.json</span><h2>Skills</h2></div><div className="skill-grid">{groups.map(([g,items])=><div className="skill-group" key={g}><h3>{g}</h3>{(items as string[]).map(x=><span key={x}>{x}</span>)}</div>)}</div></div>}
 
 function Contact(){return <div className="codepage contact-page"><div className="section-title"><span className="comment">// contact.ts</span><h2>Let's build.</h2></div><p className="contact-lead">Have a hard AI/backend problem, a product to build, or a Voice AI idea? Open a channel.</p><div className="contact-links"><a href={EMAIL}><Mail/> email</a><a href={LINKEDIN} target="_blank"><Linkedin/> linkedin</a><a href={GITHUB} target="_blank"><Github/> github</a></div></div>}
 

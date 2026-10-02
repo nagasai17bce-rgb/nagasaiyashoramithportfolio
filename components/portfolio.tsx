@@ -97,7 +97,59 @@ function Home({select}:{select:(k:FileKey)=>void}){return <div className="codepa
 function About(){return <div className="codepage"><Lines><Line n={1}><span className="kw">export const</span> <span className="var">about</span> = {'{'}</Line><Line n={2}>  current: <span className="str">"MTS at Salesforce"</span>,</Line><Line n={3}>  previous: [<span className="str">"Walmart"</span>, <span className="str">"Tekion"</span>],</Line><Line n={4}>  education: <span className="str">"BITS Goa · Computer Science"</span>,</Line><Line n={5}>  focus: [<span className="str">"AI agents"</span>, <span className="str">"RAG"</span>, <span className="str">"Inference"</span>, <span className="str">"Voice AI"</span>],</Line><Line n={6}>  philosophy: <span className="str">"Make complex systems useful."</span>,</Line><Line n={7}>{'}'}</Line></Lines><InfoGrid items={[["5+","years building"],["3","companies"],["20","GitHub AI repos"],["AI","focused domain"]]}/></div>}
 
 function Lines({children}:{children:React.ReactNode}){return <div className="code-lines">{children}</div>}
-function Experience(){return <div className="codepage"><div className="section-title"><span className="comment">// career.ts</span><h2>Experience</h2></div>{[["2024 — now","Salesforce","MTS · AI / Backend","Enterprise AI systems, agent workflows, inference and scalable backend services."],["2022 — 2024","Walmart","AI / Backend Engineering","Cloud/data systems, analytics, AI-enabled engineering and production platforms."],["2021 — 2022","Tekion","Software Engineer","Backend systems and production software for automotive technology."]].map((e,i)=><div className="experience-row" key={i}><div className="year">{e[0]}</div><div className="exp-main"><div className="exp-top"><strong>{e[1]}</strong><span>{e[2]}</span></div><p>{e[3]}</p></div></div>)}</div>}
+function Experience(){
+ const experience=[
+  {
+   date:"Jul 2024 — Present",
+   company:"Salesforce",
+   role:"Member of Technical Staff (MTS) · AI / Backend",
+   summary:"Building production-grade AI and backend systems with a focus on enterprise reliability, scalable services and intelligent workflows.",
+   bullets:[
+    "Design and develop scalable backend services and APIs for enterprise workflows, with emphasis on reliability, performance and maintainability.",
+    "Build AI-enabled workflows using LLMs, retrieval-augmented generation (RAG), embeddings, tool calling and agent-oriented patterns.",
+    "Work across cloud and data platforms to integrate services, operational data and intelligent automation into production systems.",
+    "Improve observability, debugging and production readiness through monitoring, structured telemetry, testing and engineering best practices."
+   ]
+  },
+  {
+   date:"Jun 2022 — Jul 2024",
+   company:"Walmart",
+   role:"Software Engineer · AI / Backend & Data",
+   summary:"Worked on large-scale backend, cloud and data engineering systems supporting production analytics and business workflows.",
+   bullets:[
+    "Developed backend and data workflows using Python, Java, cloud services and distributed processing technologies.",
+    "Worked with Azure, Databricks, Spark and large-scale datasets to build and optimize production data pipelines and operational workflows.",
+    "Contributed to cloud cost and log-management initiatives, including exporting high-volume Log Analytics data to object storage in controlled batches.",
+    "Worked on analytics and reporting migrations using BigQuery and Tableau, including data-source modernization and validation of production reporting flows."
+   ]
+  },
+  {
+   date:"Jun 2021 — Jun 2022",
+   company:"Tekion",
+   role:"Software Development Engineer",
+   summary:"Built backend services and production software for automotive technology products.",
+   bullets:[
+    "Developed backend services and APIs for product workflows using Java and service-oriented architecture patterns.",
+    "Worked on production features, debugging and service integrations in a fast-moving engineering environment.",
+    "Focused on API design, data flows, reliability and maintainable backend implementation.",
+    "Collaborated across engineering teams to ship and support customer-facing product capabilities."
+   ]
+  },
+  {
+   date:"Jan 2021 — Jun 2021",
+   company:"Amazon",
+   role:"Software Development Engineer Intern",
+   summary:"Software engineering internship focused on backend development, engineering fundamentals and production-quality delivery.",
+   bullets:[
+    "Worked on software engineering tasks within a production development environment and contributed to backend-oriented implementation.",
+    "Applied data structures, algorithms, API and software-design fundamentals while developing and testing assigned features.",
+    "Participated in code reviews, debugging and iterative development with an emphasis on correctness and maintainability.",
+    "Collaborated with engineers to understand requirements, implement solutions and validate changes before delivery."
+   ]
+  }
+ ];
+ return <div className="codepage"><div className="section-title"><span className="comment">// career.ts</span><h2>Work Experience</h2><p>Engineering experience across AI, backend, cloud and large-scale data systems.</p></div>{experience.map((e,i)=><div className="experience-row experience-detailed" key={e.company}><div className="year">{e.date}</div><div className="exp-main"><div className="exp-top"><strong>{e.company}</strong><span>{e.role}</span></div><p className="exp-summary">{e.summary}</p><ul className="exp-bullets">{e.bullets.map(b=><li key={b}>{b}</li>)}</ul></div></div>)}</div>
+}
 
 function Projects(){return <div className="codepage"><div className="section-title"><span className="comment">// github-projects.ts</span><h2>Projects</h2><p>Real repositories from my GitHub workspace.</p></div><div className="project-grid">{projectData.map((p,i)=><article className="project-card" key={p[0]}><div className="project-number">{String(i+1).padStart(2,"0")}</div><Code2 size={20}/><h3>{p[1]}</h3><span className="tag">{p[2]}</span><p>{p[3]}</p><a href={`https://github.com/nagasai17bce-rgb/${p[0]}`} target="_blank" rel="noreferrer">open repository <Github size={14}/></a></article>)}</div></div>}
 

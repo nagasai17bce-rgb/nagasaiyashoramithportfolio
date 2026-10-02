@@ -95,66 +95,65 @@ function Home({select}:{select:(k:FileKey)=>void}){return <div className="codepa
 </div><div className="hero-card no-portrait"><div className="hero-copy"><div className="eyebrow">BUILDER · AI ENGINEER · PROBLEM SOLVER</div><h1>Naga Sai<span>.</span></h1><p>Production AI, agent systems, inference infrastructure, cloud/data platforms and backend engineering.</p><div className="quick-actions"><button onClick={()=>select("about")}>Watch video resume <Play size={14}/></button><button onClick={()=>select("projects")}>Open projects <ExternalLink size={14}/></button><button onClick={()=>select("experience")}>View experience</button><button onClick={()=>select("skills")}>View skills</button></div></div><div className="hero-terminal"><span>video_resume</span><strong>READY</strong><small>about.ts → video resume</small></div></div><div className="terminal-command"><span className="prompt">naga@portfolio</span>:<span className="path">~</span>$ <span className="typing">build systems, not slides.</span><span className="cursor">▋</span></div></div>}
 
 function About(){
- const [videoReady,setVideoReady]=useState(false);
  const [videoError,setVideoError]=useState(false);
- return <div className="codepage about-page"><div className="section-title"><span className="comment">// about.ts</span><h2>Video Resume</h2><p>A visual introduction to what I build, how I work, and where I am going with AI.</p></div><div className="video-resume-shell"><div className="video-resume-top"><div><span className="video-kicker">VIDEO_RESUME.MP4</span><h3>Naga Sai · AI / Backend</h3><p>Production AI · Agent systems · Inference · Voice AI</p></div><span className="video-status">{videoReady?"PLAYING":"READY"}</span></div><div className="video-frame"><video controls playsInline preload="metadata" onLoadedData={()=>setVideoReady(true)} onError={()=>setVideoError(true)}><source src="/video-resume.mp4" type="video/mp4"/>Your browser does not support video playback.</video>{!videoReady&&<div className="video-missing"><Play size={20}/><strong>{videoError?"Video file not connected yet":"Add your video character"}</strong><span>Place your existing video as <code>public/video-resume.mp4</code> and this player will use it automatically.</span></div>}</div><div className="video-caption"><span>01</span><p>This replaces the static photo with a video-first introduction. Your existing character/video stays the visual identity; the portfolio provides the presentation layer.</p></div></div><InfoGrid items={[["5+","years building"],["3","companies"],["20","GitHub AI repos"],["AI","focused domain"]]}/></div>
+ return <div className="codepage about-page"><div className="section-title"><span className="comment">// about.ts</span><h2>Video Resume</h2><p>A video-first introduction to my engineering journey, AI work and the systems I build.</p></div><div className="video-resume-shell"><div className="video-resume-top"><div><span className="video-kicker">VIDEO_RESUME.MP4</span><h3>Naga Sai · AI / Backend</h3><p>Production AI · Agent systems · Inference · Voice AI</p></div><span className="video-status">{videoError?"ASSET REQUIRED":"VIDEO READY"}</span></div><div className="video-frame"><video controls playsInline preload="metadata" poster="/video-resume-poster.jpg" onError={()=>setVideoError(true)}><source src="/video-resume.mp4" type="video/mp4"/>Your browser does not support video playback.</video>{videoError&&<div className="video-missing"><Play size={20}/><strong>Video file is not in the deployed site</strong><span>Add your actual video as <code>public/video-resume.mp4</code>. For reliable browser playback, export it as H.264 video + AAC audio in an MP4 container.</span></div>}</div><div className="video-caption"><span>01</span><p>Your character/video is the visual identity here. Once the MP4 is added to the public folder, this section becomes the actual playable video resume.</p></div></div><InfoGrid items={[["5+","years building"],["4","companies"],["20","GitHub AI repos"],["AI","focused domain"]]}/></div>
 }
-
 function Lines({children}:{children:React.ReactNode}){return <div className="code-lines">{children}</div>}
 function Experience(){
  const experience=[
   {
    date:"Jul 2024 — Present",
    company:"Salesforce",
-   role:"Member of Technical Staff (MTS) · AI / Backend",
-   summary:"Building production-grade AI and backend systems with a focus on enterprise reliability, scalable services and intelligent workflows.",
+   role:"Member of Technical Staff · AI Platform Engineering",
+   summary:"Building production AI and backend systems for enterprise workflows, with a focus on scalable services, agentic systems, inference and reliability.",
    bullets:[
-    "Design and develop scalable backend services and APIs for enterprise workflows, with emphasis on reliability, performance and maintainability.",
-    "Build AI-enabled workflows using LLMs, retrieval-augmented generation (RAG), embeddings, tool calling and agent-oriented patterns.",
-    "Work across cloud and data platforms to integrate services, operational data and intelligent automation into production systems.",
-    "Improve observability, debugging and production readiness through monitoring, structured telemetry, testing and engineering best practices."
+    "Reduced backend latency approximately 35% through model routing, request caching, concurrency controls and token-aware execution.",
+    "Increased asynchronous AI processing throughput approximately 3× using Kafka, Redis, GraphQL and asynchronous worker services.",
+    "Designed agent execution around planning, retrieval, tool selection, validation, retries and approval workflows.",
+    "Built reusable MCP interfaces over enterprise APIs and data sources, with evaluation and observability across retrieval, groundedness, task completion, tool selection, latency, tokens and failures.",
+    "Productionized services with Docker, Kubernetes, GitHub Actions and ArgoCD."
    ]
   },
   {
    date:"Jun 2022 — Jul 2024",
    company:"Walmart",
-   role:"Software Engineer · AI / Backend & Data",
-   summary:"Worked on large-scale backend, cloud and data engineering systems supporting production analytics and business workflows.",
+   role:"Software Engineer · Data Platform, Fraud Analytics & Backend",
+   summary:"Worked on large-scale backend, cloud and data platforms supporting fraud analytics, reporting and operational workflows.",
    bullets:[
-    "Developed backend and data workflows using Python, Java, cloud services and distributed processing technologies.",
-    "Worked with Azure, Databricks, Spark and large-scale datasets to build and optimize production data pipelines and operational workflows.",
-    "Contributed to cloud cost and log-management initiatives, including exporting high-volume Log Analytics data to object storage in controlled batches.",
-    "Worked on analytics and reporting migrations using BigQuery and Tableau, including data-source modernization and validation of production reporting flows."
+    "Engineered distributed processing across datasets containing hundreds of millions of records.",
+    "Designed archival for 69.8M+ AppTraces records across 180 days, moving telemetry from Log Analytics to Blob Storage.",
+    "Built 50K–100K record extraction batches with checkpointing, validation and retries for restartable exports.",
+    "Designed approximately 1 TB-scale data movement with isolated query, persistence, validation and retention stages.",
+    "Rebuilt fraud reporting around T360 datasets and BigQuery-native transformations feeding Tableau."
    ]
   },
   {
    date:"Jun 2021 — Jun 2022",
    company:"Tekion",
    role:"Software Development Engineer",
-   summary:"Built backend services and production software for automotive technology products.",
+   summary:"Built backend services and data-processing capabilities for an automotive SaaS platform.",
    bullets:[
-    "Developed backend services and APIs for product workflows using Java and service-oriented architecture patterns.",
-    "Worked on production features, debugging and service integrations in a fast-moving engineering environment.",
-    "Focused on API design, data flows, reliability and maintainable backend implementation.",
-    "Collaborated across engineering teams to ship and support customer-facing product capabilities."
+    "Built backend services for automotive SaaS workflows with an emphasis on scalable APIs and maintainable service boundaries.",
+    "Worked on data-processing pipelines and distributed application workflows.",
+    "Contributed to scalable microservice-oriented systems and production integrations.",
+    "Worked across implementation, debugging and delivery of customer-facing engineering features."
    ]
   },
   {
    date:"Jan 2021 — Jun 2021",
    company:"Amazon",
    role:"Software Development Engineer Intern",
-   summary:"Software engineering internship focused on backend development, engineering fundamentals and production-quality delivery.",
+   summary:"Software engineering internship focused on backend development, production engineering practices and delivery.",
    bullets:[
-    "Worked on software engineering tasks within a production development environment and contributed to backend-oriented implementation.",
-    "Applied data structures, algorithms, API and software-design fundamentals while developing and testing assigned features.",
-    "Participated in code reviews, debugging and iterative development with an emphasis on correctness and maintainability.",
-    "Collaborated with engineers to understand requirements, implement solutions and validate changes before delivery."
+    "Contributed to backend-oriented software development in a production engineering environment.",
+    "Applied data structures, algorithms and software-design fundamentals to implementation and testing tasks.",
+    "Participated in debugging, code reviews and iterative development with emphasis on correctness and maintainability.",
+    "Worked with engineers to understand requirements, implement changes and validate delivery."
    ]
   }
  ];
- return <div className="codepage"><div className="section-title"><span className="comment">// career.ts</span><h2>Work Experience</h2><p>Engineering experience across AI, backend, cloud and large-scale data systems.</p></div>{experience.map((e,i)=><div className="experience-row experience-detailed" key={e.company}><div className="year">{e.date}</div><div className="exp-main"><div className="exp-top"><strong>{e.company}</strong><span>{e.role}</span></div><p className="exp-summary">{e.summary}</p><ul className="exp-bullets">{e.bullets.map(b=><li key={b}>{b}</li>)}</ul></div></div>)}</div>
+ return <div className="codepage"><div className="section-title"><span className="comment">// career.ts</span><h2>Work Experience</h2><p>From backend systems and data platforms to production AI and agentic infrastructure.</p></div>{experience.map(e=><div className="experience-row experience-detailed" key={e.company}><div className="year">{e.date}</div><div className="exp-main"><div className="exp-top"><strong>{e.company}</strong><span>{e.role}</span></div><p className="exp-summary">{e.summary}</p><ul className="exp-bullets">{e.bullets.map(b=><li key={b}>{b}</li>)}</ul></div></div>)}</div>
 }
-
 function Resume(){return <div className="codepage resume-page"><div className="section-title"><span className="comment">// resume.pdf</span><h2>Resume</h2><p>Current resume profile — AI Platform Engineering, agentic systems, inference and distributed backend.</p></div><div className="resume-actions"><a href={GITHUB} target="_blank" rel="noreferrer"><Github size={14}/> GitHub</a><a href={LINKEDIN} target="_blank" rel="noreferrer"><Linkedin size={14}/> LinkedIn</a></div><div className="resume-sheet"><header><h1>Yasho Ramith</h1><p>AI Platform Engineering · Agentic AI · Backend & Distributed Systems</p><p className="resume-meta">Bangalore, India · yashoramith@gmail.com</p></header><section><h3>Experience</h3><article><strong>Salesforce · Senior Member of Technical Staff (SMTS) — AI Platform Engineering</strong><span>Aug 2024 – Present</span><ul><li>Reduced backend latency approximately <b>35%</b> through model routing, request caching, concurrency controls and token-aware execution.</li><li>Increased asynchronous AI processing throughput approximately <b>3×</b> using Kafka, Redis, GraphQL and asynchronous worker services.</li><li>Designed agent execution around planning, retrieval, tool selection, validation, retries and approval.</li><li>Built reusable MCP interfaces over enterprise APIs and data sources.</li><li>Built evaluation and observability across retrieval relevance, groundedness, task completion, tool selection, latency, tokens and failure categories.</li><li>Productionized with Docker, Kubernetes, GitHub Actions and ArgoCD with unit, integration, API and AI-evaluation gates.</li></ul></article><article><strong>Salesforce · Member of Technical Staff (MTS) — Backend & Distributed Systems</strong><span>Jun 2023 – Aug 2024</span><ul><li>Improved event-driven workflow throughput approximately <b>60%</b> by redesigning the ingestion-to-processing boundary around Kafka.</li><li>Reduced AWS Lambda cold-start latency approximately <b>40%</b> through initialization and integration-boundary optimization.</li><li>Implemented Java 17, Spring Boot and Spring Cloud services connecting REST APIs, event contracts, asynchronous workers and downstream systems.</li><li>Added AI workflow validation using prompt variants, multi-turn scenarios, response scoring and regression cases.</li><li>Instrumented request-to-processing paths with OpenTelemetry and CloudWatch.</li></ul></article><article><strong>Walmart · Software Engineer — Data Platform, Fraud Analytics & Backend</strong><span>Jun 2021 – Jun 2023</span><ul><li>Engineered distributed processing across datasets containing <b>hundreds of millions of records</b>.</li><li>Designed archival for <b>69.8M+ AppTraces records across 180 days</b>, moving telemetry from Log Analytics to Blob Storage.</li><li>Built <b>50K–100K record</b> extraction batches with checkpointing, validation and retries for restartable exports.</li><li>Designed approximately <b>1 TB-scale</b> data movement with isolated query, persistence, validation and retention stages.</li><li>Rebuilt fraud reporting around T360 datasets and BigQuery-native transformations feeding Tableau.</li></ul></article></section><section><h3>Selected AI Projects</h3><article><strong>Inference Engineering Platform</strong><p>Python · FastAPI · PyTorch · RAG — model routing, request batching, caching, concurrency controls, token-aware execution, streaming, backpressure and telemetry.</p></article><article><strong>Harness Bench</strong><p>Python · MCP · LLM Evaluation · Tracing — trace-level evaluation across tool selection, retrieval, groundedness, task completion, quality, latency and failures; reported evaluation improvement from approximately <b>0.79 to 0.93</b>.</p></article><article><strong>Jevis AI — Enterprise Agent Platform</strong><p>FastAPI · RAG · MCP · LLMs — multi-step workflows with planning, retrieval, tool selection, validation, permissions, human approval, streaming, audit trails and recovery.</p></article></section><section><h3>Technical Skills</h3><p><b>Languages:</b> Python, Java, TypeScript, JavaScript, SQL, C++</p><p><b>AI / Agent Systems:</b> LLMs, RAG, AI Agents, Agentic AI, Claude, Prompt Engineering, Context Engineering, Structured Outputs, MCP, Tool Calling, Function Calling, Planning, Memory, Guardrails, Human-in-the-Loop</p><p><b>Inference / Evaluation:</b> Inference Optimization, Model Routing, Token Optimization, LLM Evaluation, Groundedness, Retrieval Evaluation</p><p><b>Backend:</b> Spring Boot, Spring Cloud, FastAPI, Node.js, REST, GraphQL, Microservices, Kafka, Asynchronous Processing</p><p><b>Cloud / Data:</b> AWS, Azure, GCP, Databricks, BigQuery, Apache Spark, Docker, Kubernetes, GitHub Actions, ArgoCD, Redis, PostgreSQL, MongoDB, DynamoDB, OpenTelemetry, CloudWatch</p></section></div></div>}
 
 function Projects(){return <div className="codepage"><div className="section-title"><span className="comment">// github-projects.ts</span><h2>Projects</h2><p>Real repositories from my GitHub workspace.</p></div><div className="project-grid">{projectData.map((p,i)=><article className="project-card" key={p[0]}><div className="project-number">{String(i+1).padStart(2,"0")}</div><Code2 size={20}/><h3>{p[1]}</h3><span className="tag">{p[2]}</span><p>{p[3]}</p><a href={`https://github.com/nagasai17bce-rgb/${p[0]}`} target="_blank" rel="noreferrer">open repository <Github size={14}/></a></article>)}</div></div>}

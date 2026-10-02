@@ -30,7 +30,6 @@
 .video-missing strong{font:600 17px Arial;color:#ddd}
 .video-missing span{max-width:430px;font:11px/1.6 Arial;color:#777}
 .video-missing code{color:#4ec9b0}
-.video-frame:has(video[src]) .video-missing{display:none}
 .video-caption{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:16px 24px;border-top:1px solid #303030}
 .video-caption>span{color:#569cd6;font-size:11px}
 .video-caption p{margin:0;color:#777;font:12px/1.7 Arial}

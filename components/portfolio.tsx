@@ -74,7 +74,7 @@ export default function Portfolio(){
      <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">{[["5+","Years"],["20","AI repos"],["Voice","AI focus"]].map(([a,b])=><div key={b} className="stat-tile"><b>{a}</b><span>{b}</span></div>)}</div>
     </div>
     <div className="hero-visual"><div className="portrait-orbit orbit-one"/><div className="portrait-orbit orbit-two"/><div className="portrait-halo"/>
-     <div className="portrait-frame"><img src="/hero-cutout.png" alt="Naga Sai portrait" className="portrait-image"/></div>
+     <div className="portrait-frame"><img src="https://raw.githubusercontent.com/nagasai17bce-rgb/naga-3d-portfolio/main/public/naga-portrait.png" alt="Naga Sai portrait" className="portrait-image"/></div>
      <div className="floating-brand fb-salesforce"><BrandPill name="Salesforce · MTS" kind="salesforce"/><small>Aug 2024 — Present</small></div>
      <div className="floating-brand fb-walmart"><BrandPill name="Walmart · AI" kind="walmart"/><small>Jul 2022 — Aug 2024</small></div>
      <div className="floating-brand fb-tekion"><BrandPill name="TEKION · SDE" kind="tekion"/><small>Jun 2021 — Jul 2022</small></div>
@@ -88,7 +88,13 @@ export default function Portfolio(){
 
   <section id="video-resume" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="video-resume-card">
    <div className="video-copy"><p className="text-xs font-semibold uppercase tracking-[.3em] text-blue-300">VIDEO RESUME</p><h2 className="mt-4 text-4xl font-semibold tracking-[-.04em] sm:text-6xl">12 seconds.<br/>The whole journey.</h2><p className="mt-5 max-w-xl text-base leading-7 text-zinc-400">A cinematic intro covering the person behind the systems, the Salesforce → Walmart → Tekion journey, and the AI/Voice AI work being built now.</p><div className="mt-7 flex flex-wrap gap-2">{["Salesforce","Walmart","Tekion","BITS Goa","Voice AI"].map(x=><span key={x} className="video-tag">{x}</span>)}</div></div>
-   <div className="video-window"><video controls playsInline preload="metadata" poster="/hero-cutout.png" className="h-full w-full object-cover"><source src="/video-resume.mp4" type="video/mp4"/>Your browser does not support video playback.</video><div className="video-label"><Play size={14} fill="currentColor"/> PLAY VIDEO RESUME</div></div>
+   <div className="video-window motion-reel" aria-label="Animated video resume">
+  <div className="reel-scene reel-scene-one"><img src="https://raw.githubusercontent.com/nagasai17bce-rgb/naga-3d-portfolio/main/public/naga-portrait.png" alt="" /><div><b>NAGA SAI</b><span>AI Engineer · MTS @ Salesforce</span></div></div>
+  <div className="reel-scene reel-scene-two"><div className="reel-panel"><span>2017 — 2021</span><b>BITS Goa</b><small>Computer Science</small></div><div className="reel-panel"><span>Jun 2021 — Jul 2022</span><b>Tekion</b><small>Backend Systems</small></div><div className="reel-panel"><span>Jul 2022 — Aug 2024</span><b>Walmart</b><small>AI · Data Platforms</small></div><div className="reel-panel"><span>Aug 2024 — Present</span><b>Salesforce</b><small>GenAI · AI Platforms</small></div></div>
+  <div className="reel-scene reel-scene-three"><div className="reel-big">AGENTS<br/>INFERENCE<br/>VOICE AI</div><div className="reel-sub">Building intelligent systems for real-world use.</div></div>
+  <div className="reel-progress"><span/><span/><span/></div>
+  <div className="video-label"><Play size={14} fill="currentColor"/> VIDEO RESUME · AUTO REPLAY</div>
+</div>
   </div></section>
 
   <section id="experience" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><SectionTitle eyebrow="01 / Experience" title="From backend systems to AI platforms." copy="Production engineering across AI, distributed systems, data platforms and cloud infrastructure."/><div className="space-y-4">{experience.map((j,i)=><article key={j.period} className="experience-card"><div className="experience-date"><span>0{i+1}</span><b>{j.period}</b><small>{j.location}</small></div><div><div className="flex flex-wrap items-start justify-between gap-4"><div><h3>{j.company}</h3><p>{j.role}</p></div><ArrowUpRight className="text-zinc-600"/></div><ul className="mt-6 grid gap-3 md:grid-cols-2">{j.points.map(p=><li key={p}><CheckCircle2 size={15}/><span>{p}</span></li>)}</ul></div></article>)}</div></section>

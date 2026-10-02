@@ -83,7 +83,7 @@ export default function Portfolio() {
           <h1 className="mt-5 text-6xl font-semibold tracking-[-.05em] sm:text-8xl">Naga Sai<span className="text-blue-400">.</span></h1>
           <p className="mt-5 text-xl text-zinc-200">Agents · Inference · Data · Distributed Systems</p>
           <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-400">I build intelligent systems and scalable backend platforms where AI meets real production constraints.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black">Explore work <ArrowDown size={16}/></a><a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold"><Download size={16}/> Resume</a></div>
+          <div className="mt-8 flex flex-wrap gap-3"><a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black">Explore work <ArrowDown size={16}/></a><a href="/resume" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold"><Download size={16}/> Resume</a></div>
           <div className="mt-12 grid max-w-xl grid-cols-3 gap-3">{[["5+","Years"],["20","AI repos"],["Voice","AI focus"]].map(([a,b])=><div key={b} className="rounded-2xl border border-white/10 bg-white/[.025] p-4"><b className="text-lg">{a}</b><p className="mt-1 text-xs text-zinc-500">{b}</p></div>)}</div>
         </div>
         <div className="relative h-[580px] lg:h-[680px]">

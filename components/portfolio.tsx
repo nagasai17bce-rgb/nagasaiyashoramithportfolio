@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Activity, BriefcaseBusiness, Code2, FileCode2, Folder, FolderOpen, Github, Linkedin, Mail, Menu, Play, Search, Settings, Terminal, User, X, ChevronDown, ChevronRight, ExternalLink, GitBranch, Package, Globe, CheckCircle2, Command, Cpu } from "lucide-react";
 
 const PORTRAIT="https://raw.githubusercontent.com/nagasai17bce-rgb/naga-3d-portfolio/main/public/naga-portrait.png";
